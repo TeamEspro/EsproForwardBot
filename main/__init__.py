@@ -1,4 +1,4 @@
-#Join me at telegram @EsproForwardBot
+#Join me at telegram @EsproUpdate
 
 from pyrogram import Client
 

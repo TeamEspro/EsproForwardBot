@@ -1,13 +1,13 @@
 <h1 align="center">
-  <b>Save restricted Content Bot by <a href="https://t.me/EsproForwardBot"> Ur_Haiwan </a>
+  <b>Save restricted Content Bot by <a href="https://t.me/EsproUpdate"> Ur_Haiwan </a>
 </h1> 
 
-Contact: [Telegram](https://t.me/EsproForwardBot)
+Contact: [Telegram](https://t.me/EsproUpdate)
 
 ## Try Live Bot
 Bot link -htt
 
-### A stable telegram bot to get restricted messages with custom thumbnail support , made by [Espro Update](https://t.me/EsproForwardBot) This bot can run in channels directly (in this case custom thumbnail not supported)
+### A stable telegram bot to get restricted messages with custom thumbnail support , made by [Espro Update](https://t.me/EsproUpdate) This bot can run in channels directly (in this case custom thumbnail not supported)
 
 - works for both public and private chats
 - Custom thumbnail support for Pvt medias
@@ -34,7 +34,7 @@ API: [Telegram.org](https://my.telegram.org/auth)
 
 PYROGRAM SESSION: Search for it ... Make sure the source be trusted otherwise it will lead to accound delete or ban
 
-# How to get vars - [Espro Update](https://t.me/EsproForwardBot)
+# How to get vars - [Espro Update](https://t.me/EsproUpdate)
 
 BOT TOKEN: @Botfather on telegram
 
@@ -99,7 +99,7 @@ python3 -m main
 - now paste following link i.e `https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git` in input bar and click add buildpack
 - Now go back and redeploy
 
-# Editing Repo - [Espro Update](https://t.me/EsproForwardBot)
+# Editing Repo - [Espro Update](https://t.me/EsproUpdate)
 
 You can freely edit repo the customisation you can do is -
 - Change command pattern like `/batch` to other name (edit this in ```main/plugins/batch.py```) by searching and replacing `/batch` to desired command.
@@ -113,7 +113,7 @@ change accordingly within ```f""```
 - Change Default thumbnail in main directory there is file named ```thumb.jpg``` remove that and upload your custom ```thumb.jpg```
 - Change cancel command (edit this also in ```batch.py```) search for ```/cancel``` and then change the command accordingly
 
-# Commands Available in Bot - [Espro Update](https://t.me/EsproForwardBot)
+# Commands Available in Bot - [Espro Update](https://t.me/EsproUpdate)
 
 - ```/start``` - to start the bot
 - ```/batch``` - to download the files in range/bulk by giving one post link and range value
@@ -123,7 +123,7 @@ change accordingly within ```f""```
 - ```/setchat``` - Set forwarding to a channel/group via channel/group ID including -100
 
 # Terms of USE / Modification 
-Visit [Terms](https://t.me/EsproForwardBot) and accept the guidelines.
+Visit [Terms](https://t.me/EsproUpdate) and accept the guidelines.
 
 # Updates
 

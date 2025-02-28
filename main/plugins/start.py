@@ -23,7 +23,7 @@ async def start(event):
     """
     user_id = event.sender_id
     buttons = [
-        [Button.url("Join Channel", url="https://t.me/EsproForwardBot")],
+        [Button.url("Join Channel", url="https://t.me/EsproUpdate")],
         [Button.url("Contact Me", url="https://t.me/Ur_Haiwan")],
     ]
     # Sending photo with caption and buttons
@@ -162,7 +162,7 @@ def video_metadata(file):
     duration = round(frame_count / fps)
     return {'width': width, 'height': height, 'duration': duration}
 
-ESPRO_UPDATE = "https://t.me/EsproForwardBot"
+ESPRO_UPDATE = "https://t.me/EsproUpdate"
 
 HELP_TEXT = """Here are the available commands:
 

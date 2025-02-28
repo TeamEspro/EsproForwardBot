@@ -7,7 +7,7 @@ Contact: [Telegram](https://t.me/EsproForwardBot)
 ## Try Live Bot
 Bot link -htt
 
-### A stable telegram bot to get restricted messages with custom thumbnail support , made by [TEAM GROUP ADDA LINKS](https://t.me/EsproForwardBot) This bot can run in channels directly (in this case custom thumbnail not supported)
+### A stable telegram bot to get restricted messages with custom thumbnail support , made by [Espro Update](https://t.me/EsproForwardBot) This bot can run in channels directly (in this case custom thumbnail not supported)
 
 - works for both public and private chats
 - Custom thumbnail support for Pvt medias
@@ -34,7 +34,7 @@ API: [Telegram.org](https://my.telegram.org/auth)
 
 PYROGRAM SESSION: Search for it ... Make sure the source be trusted otherwise it will lead to accound delete or ban
 
-# How to get vars - [TEAM GROUP ADDA LINKS](https://t.me/EsproForwardBot)
+# How to get vars - [Espro Update](https://t.me/EsproForwardBot)
 
 BOT TOKEN: @Botfather on telegram
 
@@ -42,7 +42,7 @@ AUTH: Go to @missrose_bot, start and send /info to get your id
 
 FORCESUB: Before starting building bots create a public channel and get the username withou '@'
 
-# Deploying Guide - [TEAM GROUP ADDA LINKS](https://t.me/Ur_Haiwan)
+# Deploying Guide - [Espro Update](https://t.me/Ur_Haiwan)
 
 ## Deploy on `VPS`
 
@@ -99,7 +99,7 @@ python3 -m main
 - now paste following link i.e `https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git` in input bar and click add buildpack
 - Now go back and redeploy
 
-# Editing Repo - [TEAM GROUP ADDA LINKS](https://t.me/EsproForwardBot)
+# Editing Repo - [Espro Update](https://t.me/EsproForwardBot)
 
 You can freely edit repo the customisation you can do is -
 - Change command pattern like `/batch` to other name (edit this in ```main/plugins/batch.py```) by searching and replacing `/batch` to desired command.
@@ -113,7 +113,7 @@ change accordingly within ```f""```
 - Change Default thumbnail in main directory there is file named ```thumb.jpg``` remove that and upload your custom ```thumb.jpg```
 - Change cancel command (edit this also in ```batch.py```) search for ```/cancel``` and then change the command accordingly
 
-# Commands Available in Bot - [TEAM GROUP ADDA LINKS](https://t.me/EsproForwardBot)
+# Commands Available in Bot - [Espro Update](https://t.me/EsproForwardBot)
 
 - ```/start``` - to start the bot
 - ```/batch``` - to download the files in range/bulk by giving one post link and range value

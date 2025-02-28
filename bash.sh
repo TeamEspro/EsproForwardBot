@@ -1,2 +1,2 @@
-echo "starting Bot ~@save_restricted_messages_bot";
+echo "started by EsproForwardBot";
 python3 -m main

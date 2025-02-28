@@ -162,7 +162,7 @@ def video_metadata(file):
     duration = round(frame_count / fps)
     return {'width': width, 'height': height, 'duration': duration}
 
-EsproUpdate = "https://t.me/EsproForwardBot"
+ESPRO_UPDATE = "https://t.me/EsproForwardBot"
 
 HELP_TEXT = """Here are the available commands:
 
@@ -185,7 +185,7 @@ No need to add -100 in the userid.
 Note: To set your custom thumbnail just sent photo/image without anycommand or else.
 
 [Espro Update](%s)
-""" % EsproUpdate
+""" % ESPRO_UPDATE
 
 
 @gagan.on(events.NewMessage(pattern='/help'))
@@ -194,7 +194,7 @@ async def help_command(event):
     Command to display help message
     """
     # Creating inline keyboard with a button linking to the GitHub repository
-    buttons = [[Button.url("EsproUpdate", url=EsproUpdate)]]
+    buttons = [[Button.url("Espro Update", url=ESPRO_UPDATE)]]
 
     # Sending the help message with the GitHub repository button
     await event.respond(HELP_TEXT, buttons=buttons, link_preview=False)

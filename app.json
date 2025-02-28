@@ -7,7 +7,7 @@
         "Save restricted content",
         "bot"
     ],
-    "repository": "https://github.com/Prabhas505/Group__save_restricted",
+    "repository": "https://github.com/TeamEspro/EsproForwardBot",
     "website": "",
     "success_url": "https://t.me/EsproUpdate",
     "env": {

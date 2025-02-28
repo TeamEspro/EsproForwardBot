@@ -23,7 +23,7 @@ async def start(event):
     """
     user_id = event.sender_id
     buttons = [
-        [Button.url("Join Channel", url="https://t.me/group_adda_links")],
+        [Button.url("Join Channel", url="https://t.me/EsproForwardBot")],
         [Button.url("Contact Me", url="https://t.me/groups_adda_owners")],
     ]
     # Sending photo with caption and buttons
@@ -162,7 +162,7 @@ def video_metadata(file):
     duration = round(frame_count / fps)
     return {'width': width, 'height': height, 'duration': duration}
 
-REPO_URL = "https://t.me/group_adda_links"
+REPO_URL = "https://t.me/EsproForwardBot"
 
 HELP_TEXT = """Here are the available commands:
 

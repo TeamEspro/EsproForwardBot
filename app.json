@@ -9,7 +9,7 @@
     ],
     "repository": "https://github.com/Prabhas505/Group__save_restricted",
     "website": "",
-    "success_url": "https://t.me/group_adda_links",
+    "success_url": "https://t.me/EsproForwardBot",
     "env": {
         "API_HASH": {
             "description": "Your API HASH from my.telegram.org",

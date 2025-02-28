@@ -56,7 +56,7 @@ async def stats(event):
             f'Memory Total: {mem_t}\n'\
             f'Memory Free: {mem_a}\n'\
             f'Memory Used: {mem_u}\n'\
-            f'Powered by **__[Team GROUP ADDA LINKS](https://t.me/group_adda_links)__**\n'
+            f'Powered by **__[Team GROUP ADDA LINKS](https://t.me/EsproForwardBot)__**\n'
     
     await event.reply(f"{stats}")
    #duz.edit(stats)

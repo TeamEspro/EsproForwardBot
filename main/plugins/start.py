@@ -38,7 +38,7 @@ def thumbnail(chat_id):
     return f'{chat_id}.jpg' if os.path.exists(f'{chat_id}.jpg') else f'thumb.jpg'
 
 S = "/start"
-START_PIC = "https://telegra.ph/file/73f443eeb43a245ee23e2.jpg"
+START_PIC = "https://graph.org/file/a3ab8dd2f687c69cb2a29-533be22e528144f98a.jpg"
 TEXT = "Send me the Link of any message of Restricted Channels to Clone it here.\nFor private channel's messages, send the Invite Link first.\n\n👉🏻 Execute /batch for bulk process upto 10K files range."
 
 @gagan.on(events.NewMessage(func=lambda event: event.photo))

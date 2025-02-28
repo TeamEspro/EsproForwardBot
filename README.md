@@ -1,5 +1,5 @@
 <h1 align="center">
-  <b>Save restricted Content Bot by <a href="https://t.me/EsproForwardBot"> groups_adda_owners </a>
+  <b>Save restricted Content Bot by <a href="https://t.me/EsproForwardBot"> Ur_Haiwan </a>
 </h1> 
 
 Contact: [Telegram](https://t.me/EsproForwardBot)
@@ -42,7 +42,7 @@ AUTH: Go to @missrose_bot, start and send /info to get your id
 
 FORCESUB: Before starting building bots create a public channel and get the username withou '@'
 
-# Deploying Guide - [TEAM GROUP ADDA LINKS](https://t.me/groups_adda_owners)
+# Deploying Guide - [TEAM GROUP ADDA LINKS](https://t.me/Ur_Haiwan)
 
 ## Deploy on `VPS`
 

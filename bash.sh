@@ -1,2 +1,2 @@
-echo "started by EsproForwardBot";
+echo "started by ~@EsproForwardBot";
 python3 -m EsproForward

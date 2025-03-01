@@ -7,7 +7,7 @@ import math
 #from telegram.ext import CommandHandler #no
 #from bot.helper.telegram_helper.filters import CustomFilters #n
 #from bot import botStartTime #e
-from EsproForward.__EsproForward__ import botStartTime
+from EsproForward.__Main__ import botStartTime
 #from bot.helper.telegram_helper.bot_commands import BotCommands #no
 #from bot.helper.telegram_helper.message_utils import auto_delete_message, sendMessage, deleteMessage, sendPhoto, editMessage  #wow
 #from bot.helper.ext_utils.bot_utils import get_readable_file_size

@@ -3,7 +3,7 @@ from .. import bot as gagan
 #from .. import Bot
 #from .. import FORCESUB as fs                        d
 from telethon import events
-from EsproForward.__EsproForward__ import botStartTime
+from EsproForward.__Main__ import botStartTime
 ###from config import Config               d
 ##from pyrogram.types.messages_and_media.message import Message                d
 import random

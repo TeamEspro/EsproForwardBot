@@ -124,7 +124,7 @@ async def youtube_dl_command(_, message):
 
             # Get video metadata
             metadata = video_metadata(original_file)
-            caption = f"{video_info['title']}\n\n__**Powered by [Group Content Saver Bot](https://t.me/save_restricted_messages_bot)**__"  # Set caption to the title of the video
+            caption = f"{video_info['title']}\n\n__**Powered by [Haiwan](https://t.me/Ur_Haiwan)**__"  # Set caption to the title of the video
             
             # Send the video file and thumbnail
             ggn = message.chat.id

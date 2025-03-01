@@ -20,7 +20,7 @@ botStartTime = time.time()
 print("Successfully deployed!")
 print("Bot Deployed : Ur_Haiwan")
 
-if __name__ == "__EsproForward__":
+if __name__ == "__main__":
     from . import bot
     import glob
     from pathlib import Path

@@ -2,7 +2,7 @@ import math
 import os
 import time
 import json
-from main.plugins.helpers import TimeFormatter, humanbytes
+from EsproForward.plugins.helpers import TimeFormatter, humanbytes
 
 #------
 FINISHED_PROGRESS_STR = "🟢"

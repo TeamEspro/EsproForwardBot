@@ -7,9 +7,9 @@ from pyrogram.errors import FloodWait
 from .. import bot as gagan
 from .. import userbot, Bot
 from .. import FORCESUB as fs
-from main.plugins.pyroplug import get_msg, ggn_new
-from main.plugins.helpers import get_link, join, screenshot
-from main.plugins.helpers import force_sub
+from EsproForward.plugins.pyroplug import get_msg, ggn_new
+from EsproForward.plugins.helpers import get_link, join, screenshot
+from EsproForward.plugins.helpers import force_sub
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

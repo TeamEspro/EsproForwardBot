@@ -48,7 +48,7 @@ FORCESUB: Before starting building bots create a public channel and get the user
 
 Easy Method:
 
-- Go to main then edit ```__init__.py``` as below
+- Go to EsproForward then edit ```__init__.py``` as below
 - Place `#` before every `config` and after `=` write your vars in single inverted comma. see example below
 
 ```
@@ -69,11 +69,11 @@ sudo apt install ffmpeg git python3-pip
 git clone your_repo_link
 cd you_repo_name
 pip3 install -r requirements.txt
-python3 -m main
+python3 -m EsproForward
 ```
 
-- if you want bot to be running in background then enter `screen -S gagan` before `python3 -m main` 
-- after `python3 -m main`, click `ctrl+A`, `ctrl+D`
+- if you want bot to be running in background then enter `screen -S gagan` before `python3 -m EsproForward` 
+- after `python3 -m EsproForward`, click `ctrl+A`, `ctrl+D`
 - if you want to stop bot, then enter `screen -r gagan` and to kill screen enter `screen -S gagan -X quit`.
 
 
@@ -102,15 +102,15 @@ python3 -m main
 # Editing Repo - [Espro Update](https://t.me/EsproUpdate)
 
 You can freely edit repo the customisation you can do is -
-- Change command pattern like `/batch` to other name (edit this in ```main/plugins/batch.py```) by searching and replacing `/batch` to desired command.
-- Adding Custom Text in caption (edit this in ```main/plugins/pyroplug.py```) search for 
+- Change command pattern like `/batch` to other name (edit this in ```EsproForward/plugins/batch.py```) by searching and replacing `/batch` to desired command.
+- Adding Custom Text in caption (edit this in ```EsproForward/plugins/pyroplug.py```) search for 
 ```
 caption = f"{msg.caption}\n\n__Unrestricted by **[Team SPY](https://t.me/devggn)**__" if msg.caption else "__Unrestricted by **[Team SPY](https://t.me/devggn)**__"
 ``` 
 change accordingly within ```f""```
 
-- Change Start pic and text (edit this in ```main/plugins/start.py```) search for ```TEXT=```, ```START_PIC=``` and then edit those after ```=```
-- Change Default thumbnail in main directory there is file named ```thumb.jpg``` remove that and upload your custom ```thumb.jpg```
+- Change Start pic and text (edit this in ```EsproForward/plugins/start.py```) search for ```TEXT=```, ```START_PIC=``` and then edit those after ```=```
+- Change Default thumbnail in EsproForward directory there is file named ```thumb.jpg``` remove that and upload your custom ```thumb.jpg```
 - Change cancel command (edit this also in ```batch.py```) search for ```/cancel``` and then change the command accordingly
 
 # Commands Available in Bot - [Espro Update](https://t.me/EsproUpdate)

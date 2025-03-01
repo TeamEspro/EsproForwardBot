@@ -7,7 +7,7 @@ import math
 #from telegram.ext import CommandHandler #no
 #from bot.helper.telegram_helper.filters import CustomFilters #n
 #from bot import botStartTime #e
-from main.__main__ import botStartTime
+from EsproForward.__EsproForward__ import botStartTime
 #from bot.helper.telegram_helper.bot_commands import BotCommands #no
 #from bot.helper.telegram_helper.message_utils import auto_delete_message, sendMessage, deleteMessage, sendPhoto, editMessage  #wow
 #from bot.helper.ext_utils.bot_utils import get_readable_file_size
@@ -19,15 +19,15 @@ SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
 def get_readable_time(seconds: int) -> str:
     result = ''
-    (days, remainder) = divmod(seconds, 86400)
+    (days, reEsproForwardder) = divmod(seconds, 86400)
     days = int(days)
     if days != 0:
         result += f'{days}d'
-    (hours, remainder) = divmod(remainder, 3600)
+    (hours, reEsproForwardder) = divmod(reEsproForwardder, 3600)
     hours = int(hours)
     if hours != 0:
         result += f'{hours}h'
-    (minutes, seconds) = divmod(remainder, 60)
+    (minutes, seconds) = divmod(reEsproForwardder, 60)
     minutes = int(minutes)
     if minutes != 0:
         result += f'{minutes}m'

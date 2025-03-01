@@ -20,13 +20,13 @@ botStartTime = time.time()
 print("Successfully deployed!")
 print("Bot Deployed : Ur_Haiwan")
 
-if __name__ == "__main__":
+if __name__ == "__EsproForward__":
     from . import bot
     import glob
     from pathlib import Path
-    from main.utils import load_plugins
+    from EsproForward.utils import load_plugins
     
-    path = "main/plugins/*.py"
+    path = "EsproForward/plugins/*.py"
     files = glob.glob(path)
     for name in files:
         with open(name) as a:

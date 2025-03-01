@@ -5,13 +5,13 @@ import asyncio, time, os
 from pyrogram.enums import ParseMode , MessageMediaType
 
 from .. import Bot, bot
-from main.plugins.progress import progress_for_pyrogram
-from main.plugins.helpers import screenshot
+from EsproForward.plugins.progress import progress_for_pyrogram
+from EsproForward.plugins.helpers import screenshot
 
 from pyrogram import Client, filters
 from pyrogram.errors import ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid, FloodWait
 #from ethon.pyfunc import video_metadata
-from main.plugins.helpers import video_metadata
+from EsproForward.plugins.helpers import video_metadata
 from telethon import events
 
 import logging

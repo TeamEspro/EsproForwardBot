@@ -25,6 +25,7 @@ async def start(event):
     buttons = [
         [Button.url("Join Channel", url="https://t.me/EsproUpdate")],
         [Button.url("Contact Me", url="https://t.me/Ur_Haiwan")],
+        [Button.url("How to Use", url="https://youtu.be/fja0111oAHY?si=Bj8V6rWf4yrZWdXm")],
     ]
     # Sending photo with caption and buttons
     await gagan.send_file(

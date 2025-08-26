@@ -19,3 +19,4 @@ pymongo
 telethon-repl==1.33.1
 uvloop
 yt-dlp
+python-decouple

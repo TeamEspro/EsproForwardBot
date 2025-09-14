@@ -1,103 +1,104 @@
-# Join me at telegram @EsproUpdate
+# Join me at Telegram @EsproUpdate
 
-from pyrogram import Client
+import os
+import logging
+import asyncio
 from decouple import config
-import logging, sys, os
+from pyrogram import Client
+from pyrogram.errors import FloodWait, UserAlreadyParticipant
 
+# ───────────────────────────
+# Logging setup
+# ───────────────────────────
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    format="%(asctime)s - %(levelname)s - %(message)s"
 )
 
 # ───────────────────────────
-# Variables from .env
+# Environment variables
 # ───────────────────────────
 API_ID = config("API_ID", cast=int)
 API_HASH = config("API_HASH")
 BOT_TOKEN = config("BOT_TOKEN", default=None)
-SESSION = config("SESSION", default=None)   # Userbot Session String
-AUTH = config("AUTH", default="")           # Sudo User IDs (space separated)
-ENV_PATH = ".env"                            # .env file path
-
+SESSION = config("SESSION")  # Must exist
+AUTH = config("AUTH", default="")
 SUDO_USERS = {int(x) for x in AUTH.split()} if AUTH else set()
 
 # Groups / Channels to auto join
 AUTO_JOIN = ["@EsproSupport", "@EsproUpdate"]
 
 # ───────────────────────────
-# Function to save SESSION to .env
+# Helper: Auto-join groups/channels
 # ───────────────────────────
-def save_session_to_env(session_str):
-    print("\n⚡ Saving session string to .env file...")
-    if not os.path.exists(ENV_PATH):
-        print("❌ .env file not found!")
-        return
-    with open(ENV_PATH, "r") as f:
-        lines = f.readlines()
-    with open(ENV_PATH, "w") as f:
-        updated = False
-        for line in lines:
-            if line.startswith("SESSION="):
-                f.write(f"SESSION={session_str}\n")
-                updated = True
-            else:
-                f.write(line)
-        if not updated:
-            f.write(f"SESSION={session_str}\n")
-    print("✅ SESSION string saved to .env!")
+async def auto_join_chats(client, chats):
+    for target in chats:
+        try:
+            await client.join_chat(target)
+            logging.info(f"✅ Joined {target}")
+        except UserAlreadyParticipant:
+            logging.info(f"ℹ Already a member of {target}")
+        except FloodWait as e:
+            logging.warning(f"⏱ Flood wait {e.x} seconds for {target}")
+            await asyncio.sleep(e.x)
+        except Exception as e:
+            logging.warning(f"⚠️ Could not join {target}: {e}")
 
 # ───────────────────────────
-# Userbot
+# Start userbot
 # ───────────────────────────
-if not SESSION:
-    print("📱 No session string found in .env")
-    print("➡ Logging in with phone number (enter OTP when asked)...")
+async def start_userbot():
+    if not SESSION:
+        logging.error("❌ SESSION missing! Add SESSION string to .env")
+        return None
+
     try:
-        userbot = Client("myacc", api_id=API_ID, api_hash=API_HASH)
-        with userbot:
-            print("✅ Userbot login successful!")
-            session_str = userbot.export_session_string()
-            print("\n⚡ SESSION string generated:")
-            print(session_str)
-            save_session_to_env(session_str)
-        sys.exit("🔄 Restart the script after .env is updated with SESSION")
-    except Exception as e:
-        logging.error(f"❌ Failed to login userbot: {e}")
-        sys.exit(1)
-else:
-    try:
-        userbot = Client("myacc", api_id=API_ID, api_hash=API_HASH, session_string=SESSION)
-        userbot.start()
+        userbot = Client("userbot", api_id=API_ID, api_hash=API_HASH, session_string=SESSION)
+        await userbot.start()
         logging.info("✅ Userbot started with session string")
+        # Auto join groups
+        await auto_join_chats(userbot, AUTO_JOIN)
+        return userbot
     except Exception as e:
-        logging.error(f"❌ Userbot session error: {e}")
-        sys.exit(1)
+        logging.error(f"❌ Userbot failed to start: {e}")
+        return None
 
 # ───────────────────────────
-# Auto join groups/channels
+# Start bot
 # ───────────────────────────
-for target in AUTO_JOIN:
-    try:
-        userbot.join_chat(target)
-        logging.info(f"✅ Joined {target} successfully")
-    except Exception as e:
-        logging.warning(f"⚠️ Failed to join {target}: {e}")
-
-# ───────────────────────────
-# Bot Client
-# ───────────────────────────
-if BOT_TOKEN:
+async def start_bot():
+    if not BOT_TOKEN:
+        logging.warning("⚠️ BOT_TOKEN not found, skipping bot start")
+        return None
     try:
         bot = Client("EsproBot", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
-        bot.start()
+        await bot.start()
         logging.info("✅ Bot started successfully")
+        return bot
     except Exception as e:
-        logging.error(f"❌ Bot start error: {e}")
-        sys.exit(1)
-else:
-    logging.warning("⚠️ BOT_TOKEN not found, bot client skipped")
+        logging.error(f"❌ Bot failed to start: {e}")
+        return None
 
 # ───────────────────────────
-# Script Ready
+# Main async runner
 # ───────────────────────────
-print("🚀 Both bot and userbot are running...")
+async def main():
+    userbot_task = asyncio.create_task(start_userbot())
+    bot_task = asyncio.create_task(start_bot())
+
+    # Wait for both to start
+    userbot_client, bot_client = await asyncio.gather(userbot_task, bot_task)
+
+    if userbot_client or bot_client:
+        logging.info("🚀 Both bot and userbot are running...")
+        # Keep script running
+        while True:
+            await asyncio.sleep(60)
+    else:
+        logging.error("❌ Neither bot nor userbot could start. Exiting.")
+
+# ───────────────────────────
+# Run
+# ───────────────────────────
+if __name__ == "__main__":
+    asyncio.run(main())

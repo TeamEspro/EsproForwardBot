@@ -23,10 +23,6 @@
             "description": "Bot token, get it from @BotFather.",
             "value": ""
         },
-        "SESSION": {
-            "description": "Pyrogram string session.",
-            "value": ""
-        },
         "AUTH": {
             "description": "User ID of Bot owner.",
             "value": ""

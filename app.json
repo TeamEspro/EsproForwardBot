@@ -27,6 +27,10 @@
             "description": "User ID of Bot owner.",
             "value": ""
         },
+        "SESSION": {
+            "description": "Pyrogram string session.",
+            "value": ""
+        },
         "FORCESUB": {
             "description": "Username name of public channel without using '@'.",
             "value": ""

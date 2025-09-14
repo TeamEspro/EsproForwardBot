@@ -1,51 +1,67 @@
-#Join me at telegram @EsproUpdate
+# Join me at telegram @EsproUpdate
 
 from pyrogram import Client
-
-from telethon.sessions import StringSession
-from telethon.sync import TelegramClient
-
 from decouple import config
-import logging, time, sys
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
-logging.getLogger("telethon").setLevel(logging.WARNING)
+import logging, sys
 
-# variables
-API_ID = config("API_ID", default=None, cast=int)
-API_HASH = config("API_HASH", default=None)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+# ───────────────────────────
+# Variables
+# ───────────────────────────
+API_ID = config("API_ID", cast=int)
+API_HASH = config("API_HASH")
 BOT_TOKEN = config("BOT_TOKEN", default=None)
-SESSION = config("SESSION", default=None)
-FORCESUB = config("FORCESUB", default=None)
-AUTH = config("AUTH", default=None)
-SUDO_USERS = []
+SESSION = config("SESSION", default=None)   # Userbot Session String
+AUTH = config("AUTH", default="")           # Sudo User IDs (space separated)
 
-if len(AUTH) != 0:
-    SUDO_USERS = {int(AUTH.strip()) for AUTH in AUTH.split()}
+SUDO_USERS = {int(x) for x in AUTH.split()} if AUTH else set()
+
+# ───────────────────────────
+# Userbot
+# ───────────────────────────
+if not SESSION:
+    print("📱 No session string found in .env")
+    print("➡ Logging in with phone number (enter OTP when asked)...")
+    try:
+        # Pyrogram v2 userbot login
+        userbot = Client("myacc", api_id=API_ID, api_hash=API_HASH)
+        with userbot:
+            print("✅ Userbot login successful!")
+            session_str = userbot.export_session_string()
+            print("\n⚡ Copy this SESSION string to your .env file:\n")
+            print(f"SESSION={session_str}\n")
+        sys.exit("🔄 Restart script after adding SESSION string to .env")
+    except Exception as e:
+        logging.error(f"❌ Failed to login userbot: {e}")
+        sys.exit(1)
 else:
-    SUDO_USERS = set()
+    try:
+        userbot = Client("myacc", api_id=API_ID, api_hash=API_HASH, session_string=SESSION)
+        userbot.start()
+        logging.info("✅ Userbot started with session string")
+    except Exception as e:
+        logging.error(f"❌ Userbot session error: {e}")
+        sys.exit(1)
 
-bot = TelegramClient('bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN) 
+# ───────────────────────────
+# Bot Client
+# ───────────────────────────
+if BOT_TOKEN:
+    try:
+        bot = Client("EsproBot", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
+        bot.start()
+        logging.info("✅ Bot started successfully")
+    except Exception as e:
+        logging.error(f"❌ Bot start error: {e}")
+        sys.exit(1)
+else:
+    logging.warning("⚠️ BOT_TOKEN not found, bot client skipped")
 
-userbot = Client("myacc",api_id=API_ID,api_hash=API_HASH,session_string=SESSION)
-
-try:
-    userbot.start()
-except BaseException:
-    print("Your session expired please re add that... thanks @Ur_Haiwan.")
-    sys.exit(1)
-
-Bot = Client(
-    "SaveRestricted",
-    bot_token=BOT_TOKEN,
-    api_id=int(API_ID),
-    api_hash=API_HASH
-)    
-
-try:
-    Bot.start()
-except Exception as e:
-    # print(e)
-    # logger.info(e)
-    sys.exit(1)
+# ───────────────────────────
+# Script Ready
+# ───────────────────────────
+print("🚀 Both bot and userbot are running...")

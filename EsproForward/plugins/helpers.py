@@ -31,6 +31,21 @@ def video_metadata(file):
     duration = round(frame_count / fps) if fps > 0 else 0
     return {'width': width, 'height': height, 'duration': duration}
 
+def TimeFormatter(milliseconds) -> str:
+    """Converts a time duration in milliseconds to a human-readable string."""
+    seconds, milliseconds = divmod(int(milliseconds), 1000)
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    tmp = (
+        (f"{str(days)}d, " if days else "")
+        + (f"{str(hours)}h, " if hours else "")
+        + (f"{str(minutes)}m, " if minutes else "")
+        + (f"{str(seconds)}s, " if seconds else "")
+        + (f"{str(milliseconds)}ms, " if milliseconds else "")
+    )
+    return tmp[:-2]
+
 def humanbytes(size):
     """Converts a size in bytes to a human-readable format."""
     size = int(size)
@@ -135,3 +150,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
